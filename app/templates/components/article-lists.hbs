@@ -1,0 +1,32 @@
+<div class='container'>
+    {{#each articles key="id" as |art|}}
+        <ul class='list-group' style='margin-top:10px'>
+            <li class="list-group-item active">
+                <div class="row">
+                    <div class="col col-md-4">  Overall Rating:  {{art.rating}}%
+                        <div class="progress" style="width:250px">
+                            <div class="progress-bar bg-danger" role="progressbar" style={{concat 'width:' art.rating '%'}} aria-valuenow={{art.rating}} aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="col col-md-6">
+                        <select class='btn float-right' id={{concat 'rate' art.id}}>
+                                <option value=5>Love</option>
+                                <option value=4>Like</option>
+                                <option value=3>Dislike</option>
+                                <option value=2>Angry</option>
+                                <option value=1>Sad</option>
+                        </select>
+                    </div>
+                    <div class="col col-md-2">
+                            <button class='btn btn-danger' onclick={{action 'userRating' art}} >Rate</button>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">{{{art.content}}}</li>
+        </ul>
+    {{/each}}
+</div>
+
+<a href='/newarticle' class="btn btn-warning" style="position:fixed;right:10px;top:10px;">Add<br>NEW<br>Article</a>
+
+{{yield}}

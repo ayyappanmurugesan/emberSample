@@ -1,0 +1,25 @@
+.container {
+    flex: 1;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+
+}
+
+.content {
+
+    background-color: red;
+    min-width: 100px;
+    min-height: 100px;
+    
+
+}
+
+.editable {
+
+    background-color: green;
+    min-width: 100px;
+    min-height: 100px;
+    
+
+}
